@@ -1,0 +1,14 @@
+le programme marche bien mais parfois il se peut que vous retrouvez monsieur 
+cet erreur "OperationalError: database is locked" 
+j'ai chercher sur internet et j'ai conclus que les erreurs de base de données 
+sont verrouillées indiquent que votre application connaît plus de concurrence
+ que sqlite peut gérer dans la configuration par défaut. Cette erreur signifie 
+qu'un thread ou un processus a un verrou exclusif sur la connexion à la base 
+de données et qu'un autre thread a expiré en attendant que le verrou soit 
+libéré.
+
+Si vous obtenez cette erreur, vous pouvez la résoudre en :
+
+Basculer vers un autre backend de base de données.À un certain moment SQLite
+devient trop "léger" pour les applications du monde réel, et ce genre d'erreurs
+de simultanéité indique que vous avez atteint ce point.
